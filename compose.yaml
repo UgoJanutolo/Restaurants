@@ -1,6 +1,6 @@
 ﻿services:
   restaurants.presentation.api:
-    image: ${DOCKER_IMAGE:-tartiflett/restaurant-api:latest}
+    image: tartiflett/restaurant-api:sha-55dc007
     environment:
       - ConnectionStrings__RestaurantsDb=${DB_CONNECTION_STRING}
       - BlobStorage__ConnectionString=${BLOB_CONNECTION_STRING}
