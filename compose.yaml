@@ -1,6 +1,6 @@
 ﻿services:
   restaurants.presentation.api:
-    image: ${DOCKER_IMAGE:-tartiflett/restaurant-api:latest}
+    image: tartiflett/restaurant-api:sha-a4e8ed5
     environment:
       - ConnectionStrings__RestaurantsDb=${DB_CONNECTION_STRING}
       - BlobStorage__ConnectionString=${BLOB_CONNECTION_STRING}
@@ -39,9 +39,12 @@
       - AZURITE_ACCOUNTS=${AZURITE_ACCOUNTS:-devstoreaccount1:restaurantStore123!}
     networks:
       - restaurant-network
+    restart: unless-stopped
+
 networks:
   restaurant-network:
     driver: bridge
+
 volumes:
   sqlserver-data:
   azurite-data:
