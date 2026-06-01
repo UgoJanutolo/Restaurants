@@ -39,9 +39,12 @@
       - AZURITE_ACCOUNTS=${AZURITE_ACCOUNTS:-devstoreaccount1:restaurantStore123!}
     networks:
       - restaurant-network
+    restart: unless-stopped
+
 networks:
   restaurant-network:
     driver: bridge
+
 volumes:
   sqlserver-data:
   azurite-data:
